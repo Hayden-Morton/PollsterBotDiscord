@@ -9,6 +9,7 @@ class MyClient(discord.Client):
         emoji_numbers = ['1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🔟'] #glitched formatting in text
         emoji_day_letters = ['🇲','🇹','🇼','🇭','🇫','🇸','🇺']
         emoji_thumbs = ['👍','👎','🤷']
+        emoji_easter_egg = ['🥚','🐰']
         emoji_reset = ['🔄']
 
         self.preReactionActions = []
@@ -18,7 +19,7 @@ class MyClient(discord.Client):
         self.postReactionActions.append(UpToInclusive.UpToInclusive(emoji_numbers))
         self.postReactionActions.append(BetweenInclusive.BetweenInclusive(emoji_day_letters))
         self.postReactionActions.append(MentionThumbs.MentionThumbs(emoji_thumbs))
-
+        self.postReactionActions.append(AddFill.AddFill(emoji_easter_egg))
 
         intents = discord.Intents(members=True,guilds=True)
     
