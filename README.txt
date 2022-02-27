@@ -4,6 +4,8 @@ Date: 22/02/2022
 
 Purpose: Allow for easier Polls in discord using reactions
 
+	Bot is run locally on author's machine
+
 	Only works for new messages sent while bot is active.
 
 Run:
