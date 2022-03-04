@@ -12,10 +12,11 @@ class MyClient(discord.Client):
         emoji_easter_egg = ['🥚','🐰']
         emoji_reset = ['🔄']
         emoji_PSR = ['🧻','✂️','🪨']
+        emoji_response = [['🤖','🏆'],['😃','🏆']]
 
         self.preReactionActions = []
 
-        #self.preReactionActions.append(RemoveAll.RemoveAll(emoji_reset))
+        self.preReactionActions.append(RemoveAll.RemoveAll(emoji_reset))
 
         self.postReactionActions = []
         self.postReactionActions.append(UpToInclusive.UpToInclusive(emoji_numbers))
@@ -23,6 +24,7 @@ class MyClient(discord.Client):
         self.postReactionActions.append(MentionThumbs.MentionThumbs(emoji_thumbs))
         self.postReactionActions.append(AddFill.AddFill(emoji_easter_egg))
         self.postReactionActions.append(RandomReact.RandomReact(emoji_PSR))
+        self.postReactionActions.append(Comparison.Comparison(emoji_PSR,emoji_response))
 
         intents = discord.Intents(members=True,guilds=True)
     
