@@ -10,6 +10,7 @@ class Comparison(_reactionAction):
 
     async def _technique(self,reaction):
         for other_reaction in reaction.message.reactions:
+            print(reaction.emoji,other_reaction.emoji)
             if (other_reaction != reaction) and (other_reaction.emoji in self.emoji_list):
                 if (reaction.emoji == other_reaction.emoji):
                     await reaction.message.clear_reactions()
@@ -21,4 +22,4 @@ class Comparison(_reactionAction):
                         await reaction.message.add_reaction(discord.PartialEmoji(name = response)) 
                     
                 
-                return
+                # return

@@ -13,18 +13,21 @@ class MyClient(discord.Client):
         emoji_reset = ['🔄']
         emoji_PSR = ['🧻','✂️','🪨']
         emoji_response = [['🤖','🏆'],['😃','🏆']]
+        emoji_RemoveSelfAdditional = ['🔂']
 
         self.preReactionActions = []
 
         self.preReactionActions.append(RemoveAll.RemoveAll(emoji_reset))
+        self.preReactionActions.append(RemoveSelfAdditional.RemoveSelfAdditional(emoji_RemoveSelfAdditional))
 
         self.postReactionActions = []
+        self.postReactionActions.append(RandomReact.RandomReact(emoji_PSR))
         self.postReactionActions.append(UpToInclusive.UpToInclusive(emoji_numbers))
         self.postReactionActions.append(BetweenInclusive.BetweenInclusive(emoji_day_letters))
         self.postReactionActions.append(MentionThumbs.MentionThumbs(emoji_thumbs))
         self.postReactionActions.append(AddFill.AddFill(emoji_easter_egg))
-        self.postReactionActions.append(RandomReact.RandomReact(emoji_PSR))
         self.postReactionActions.append(Comparison.Comparison(emoji_PSR,emoji_response))
+
 
         intents = discord.Intents(members=True,guilds=True)
     
